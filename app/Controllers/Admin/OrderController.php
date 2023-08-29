@@ -90,4 +90,40 @@ class OrderController
         }
     }
 
+    public function listOrder()
+    {
+        $listOrders = $this->order->listOrders();
+        // print_r($listOrders);die();
+        require "views/admin/dsDonHang/index.php";
+    }
+
+    public function seeOrder()
+    {
+        $id = $_GET['id'];
+        $orders = $this->order->get($id);
+        
+        $array = [];
+
+        foreach ($orders as &$orderItem) {
+            $list = $this->orderDetail->getOrderDetailsList($id);
+            foreach ($list as $item) {
+                if ($orderItem['id'] == $item['oder_id']) {
+                    $arrayList[] = $item;
+                }
+            }
+            $orderItem['product'] = $arrayList;
+            $array[] = $orderItem;
+        }
+        
+        // print_r($orders);die();
+        require "views/admin/xemDH/index.php";
+    }
+
+    public function search()
+    {
+        $key = $_POST['searchValue'];
+        $listOrders = $this->order->search($key);
+        require "views/admin/dsDonHang/index.php";
+    }
+
 }

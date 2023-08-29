@@ -17,7 +17,7 @@ class CategoryController
     public function index()
     {
         $category = new Category();
-        $categories = $category->all();
+        $categories = $category->get();
         require "views/admin/danhMucSP/index.php";
     }
 

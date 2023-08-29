@@ -30,7 +30,6 @@ class ProductController
         $product_id = $_GET['product_id'];
         $id = $_GET['category_id'];
 
-        // hiển thi ra danh mục
         $target_file = "public/assets/admin/img/";
 
         $categories = $this->category->all();

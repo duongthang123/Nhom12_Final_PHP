@@ -43,9 +43,7 @@
 
                         <div class="browse">
                            <input type="search" placeholder="Search" class="record-search">
-                            <select name="" id="">
-                                <option value="">Status</option>
-                            </select>
+                            
                         </div>
                     </div>
 

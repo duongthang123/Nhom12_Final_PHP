@@ -55,7 +55,7 @@
 
                                 </td>
                                 <td class="cart__title-action">
-                                    <a href="index.php?controller=cart&action=deleteItem&module=web&product_id=<?php echo $itemCart['product_id'] ?>" id="delete"  class="cart__title-action-link delete" >X</a>
+                                    <a href="index.php?controller=cart&action=deleteItem&module=web&product_id=<?php echo $itemCart['product_id'] ?>" id="delete" onclick="removeRow()" class="cart__title-action-link delete" >X</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -68,7 +68,7 @@
         <div class="row sm-gutter">
             <div class="cart__btn">
                 <a href="index.php?controller=shopgrid&action=index&module=web" class="btn cart__btn_continue">Tiếp tục mua hàng</a>
-                <a href="#" class="btn cart__btn_update">Cập nhật cart</a>
+                <a href="index.php?controller=cart&action=index&module=web" class="btn cart__btn_update">Cập nhật cart</a>
             </div>
         </div>
 

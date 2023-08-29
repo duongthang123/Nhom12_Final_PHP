@@ -67,12 +67,12 @@
                                             </td>
                                             <td>
                                                 <div class="btn__status_product">
-                                                    <?php if($iteam['status'] == 'chờ xác nhận') {?>
+                                                    <?php if($iteam['status'] == 'đã xác nhận') {?>
                                                         <input type="hidden" name="order_id" value="<?php echo $iteam['id'] ?>"/>
                                                         <button type="submit" name="status_succes" id="btn__status_succes" class="btn__status_succes">Hoàn Thành</button>
                                                         <button type="submit" name="status_dis" class="btn__status_dis">Hủy Đơn</button>
     
-                                                    <?php }else if($iteam['status'] == 'đã xác nhận') {?>
+                                                    <?php }else if($iteam['status'] == 'đã thành công') {?>
     
                                                         <p class="btn__statuc_succes-text show">Đơn hàng thành công</p>
     

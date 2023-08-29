@@ -8,7 +8,7 @@ class Product extends Model
 
     public function all() 
     {
-        $sql =  "SELECT * FROM product";
+        $sql =  "SELECT * FROM product order by id DESC";
 
         $result = $this->dbConnection->query($sql);
 
@@ -66,7 +66,7 @@ class Product extends Model
 
     public function getNewProduct($limit = 4)
     {
-        $sql = "SELECT * FROM product LIMIT $limit";
+        $sql = "SELECT * FROM product order by id DESC LIMIT $limit";
 
         $result = $this->dbConnection->query($sql);
 
@@ -150,5 +150,15 @@ class Product extends Model
         $result = $this->dbConnection->query($sql);
 
         return $result;
+    }
+
+    public function bestSellProducts($limit = 4)
+    {
+        $sql = "SELECT * FROM product order by soldQuantity DESC LIMIT $limit";
+
+        $result = $this->dbConnection->query($sql);
+
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }

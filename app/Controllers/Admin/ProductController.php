@@ -71,8 +71,8 @@ class ProductController
     public function edit()
     {
         $id = $_GET['id'];
-        $product = new Product();
-        $product = $product->edit($id);
+        $product = $this->product->edit($id);
+        // print_r($product);die();
         $target_file = "public/assets/admin/img/";
 
         $category = new Category();

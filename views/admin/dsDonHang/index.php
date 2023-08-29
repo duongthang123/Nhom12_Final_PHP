@@ -27,7 +27,7 @@
         <main>
             
             <div class="page-header">
-                <h1>Danh Sách Sản Phẩm</h1>
+                <h1>Danh Sách Đơn Hàng</h1>
                 <small>Home / Dashboard</small>
             </div>
             
@@ -37,14 +37,12 @@
 
                     <div class="record-header">
                         <div class="add">
-                            <button id="bntAdd" type="submit">Thêm sản phẩm mới</button>
+                            <!-- <button id="bntAdd" type="submit">Thêm sản phẩm mới</button> -->
                         </div>
 
-                        <form class="browse" action="index.php?controller=product&action=search&module=admin" method="POST">
+                        <form class="browse" action="index.php?controller=order&action=search&module=admin" method="POST">
                            <input type="search" name="searchValue" placeholder="Search" class="record-search">
-                            <select name="" id="">
-                                <option value="">Status</option>
-                            </select>
+                            
                         </form>
                     </div>
 
@@ -52,49 +50,53 @@
                         <table width="100%">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th><span class="las la-sort"></span> Sản Phẩm</th>
-                                    <th><span class="las la-sort"></span> Giá tiền</th>
-                                    <th><span class="las la-sort"></span> Ngày cập nhật</th>
-                                    <th><span class="las la-sort"></span> Số lượng</th>
-                                    <th><span class="las la-sort"></span> Đã bán</th>
-                                    <th><span class="las la-sort"></span> Hành động</th>
+                                    <th>Mã đơn hàng</th>
+                                    <th><span class="las la-sort"></span> Tên khách hàng</th>
+                                    <th><span class="las la-sort"></span> Địa chỉ</th>
+                                    <th><span class="las la-sort"></span> Số điện thoại</th>
+                                    <th><span class="las la-sort"></span> Ngày đặt hàng</th>
+                                    <th><span class="las la-sort"></span> Tổng tiền</th>
+                                    <th><span class="las la-sort"></span> Trạng thái</th>
+                                    <th><span class="las la-sort"></span> </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($products as $product) {?>
+                                <?php foreach($listOrders as $order) {?>
                                 <tr>
-                                    <td><?php echo $product['id'] ?></td>
+                                    <td><?php echo $order['id'] ?></td>
                                     <td>
                                         <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(<?php echo $target_file.$product['img'] ?>)"></div>
                                             <div class="client-info">
-                                                <h4><?php echo $product['name'] ?></h4>
+                                                <h4><?php echo $order['fullname'] ?></h4>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <?php echo number_format($product['price'])?>
+                                        <?php echo $order['address'] . " - " . $order['city'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $product['created_at'] ?>
+                                        <?php echo $order['phoneNumber'] ?>
                                     </td>
                                     <td>
-                                        <?php echo $product['quantity'] ?>
+                                        <?php echo $order['oder_date'] ?>
                                     </td>
                                     <td>
-                                    <?php echo $product['soldQuantity'] ?>
+                                    <?php echo number_format($order['total_money']) ?>
+                                    </td>
+                                    <td>
+                                    <?php 
+                                        if($order['status'] == 'chờ xác nhận'){?>
+                                            <span style="color: blue;"><?php echo $order['status'] ?></span>
+                                        <?php } if($order['status'] == 'đã hủy đơn') {?>
+                                            <span style="color: red;"><?php echo $order['status'] ?></span>
+                                        <?php } if($order['status'] == 'đã thành công') {?>
+                                            <span style="color: #22baa0;"><?php echo $order['status'] ?></span>
+                                        <?php } ?>
                                     </td>
                                     <td>
                                         <div class="actions">
-                                            <a href="index.php?controller=product&action=see&module=admin&id=<?php echo $product['id'] ?>">
+                                            <a href="index.php?controller=order&action=seeOrder&module=admin&id=<?php echo $order['id'] ?>">
                                                 <span class="ti-eye"></span>
-                                            </a>
-                                            <a href="index.php?controller=product&action=edit&module=admin&id=<?php echo $product['id'] ?>">
-                                                <span class="ti-pencil"></span>
-                                            </a>
-                                            <a href="index.php?controller=product&action=delete&module=admin&id=<?php echo $product['id'] ?>">
-                                                <span class="ti-trash"></span>
                                             </a>
                                         </div>
                                     </td>

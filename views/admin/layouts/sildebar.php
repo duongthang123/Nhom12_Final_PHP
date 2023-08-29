@@ -30,17 +30,6 @@
                             <small>Trang chủ</small>
                         </a>
                     </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-user-alt"></span>
-                            <small>Profile</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-envelope"></span>
-                            <small>Mailbox</small>
-                        </a>
                     </li>
                     <li>
                         <a href="index.php?controller=product&action=index&module=admin">
@@ -58,12 +47,6 @@
                         <a href="index.php?controller=order&action=index&module=admin">
                             <span class="las la-shopping-cart"></span>
                             <small>Trang bán hàng</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-tasks"></span>
-                            <small>Tasks</small>
                         </a>
                     </li>
 

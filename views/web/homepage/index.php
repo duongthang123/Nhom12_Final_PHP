@@ -53,7 +53,7 @@
             <div class="col c-12 m-12 l-12">
                 <h1 class="content__title">SẢN PHẨM NỔI BẬT</h1>
                 <div class="row sm-gutter">
-                    <?php foreach($products as $product) {?>
+                    <?php foreach($bestSellProducts as $product) {?>
                         <div class="col c-6 m-4 l-3">
                             <div class="content__product">
                                 <div class="content__product-img">

@@ -28,7 +28,7 @@
                             if(isset($nameCategory[0]['name'])) {
                                 echo $nameCategory[0]['name'];
                             } else if(isset($key)) {
-                                echo "Kết quả tìm kiếm..";
+                                echo "Kết quả tìm kiếm: ". $key;
                             } else {
                                 echo "Thú Cưng";
                             }
@@ -39,9 +39,9 @@
                     <div class="shop__content_top">
                         <div class="shop__top_select">
                             <label class="shop__top_lable">Sắp xếp:</label>
-                            <select name="" id="" class="shop__select_list">
-                                <option value="">Sắp theo giá: Thấp -> Cao</option>
-                                <option value="">Sắp theo giá: Cao -> Thấp</option>
+                            <select name="sort" id="" class="shop__select_list">
+                                <option value="0">Sắp theo giá: Thấp -> Cao</option>
+                                <option value="1">Sắp theo giá: Cao -> Thấp</option>
                             </select>
                         </div>
 

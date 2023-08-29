@@ -115,9 +115,9 @@
     padding: 1.2rem 0rem;
 }
 
-.side-menu a.active {
+/* .side-menu a.active {
     background: #2B384E;
-}
+} */
 
 .side-menu a.active span, .side-menu a.active small {
     color: #fff;

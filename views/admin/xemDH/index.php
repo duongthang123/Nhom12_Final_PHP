@@ -45,7 +45,7 @@
 
                 <div class="content__fluid_newoderpd">
                     <ul class="new__order_list">
-                        <?php foreach($array as $order) {?>
+                        <?php foreach($orders as $order) {?>
                             <form action="index.php?controller=order&action=confirmOrder&module=admin" method="POST">
                                 <li class="new__order_item records table-responsive">
                                     <div class="new__order_item-header">
@@ -148,15 +148,13 @@
                                         </div>
                                     </div>
                                     <div class="new__order_btn">
-                                        <button class="order__btn_print">
-                                            <i class="ti-printer"></i>
-                                        </button>
+                                        <a type="submit" onclick="history.back()" name="order__btn_print" class="order__btn_succes">Quay Lại</a>
                                         <input type="hidden" name="order_id" value="<?php echo $order['id'] ?>" />
                                         <button type="submit" name="confirm_order" class="order__btn_succes">Xác Nhận</button>
                                     </div>
                                 </li>
                             </form>
-                        <?php } ?>       
+                        <?php } ?>   
                     </ul>
                 </div>
             

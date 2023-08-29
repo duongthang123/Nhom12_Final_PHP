@@ -8,7 +8,17 @@ class Category extends Model
 
     public function all()
     {
-        $sql = "SELECT * FROM category";
+        $sql = "SELECT * FROM category ";
+
+        $result = $this->dbConnection->query($sql);
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+    }
+
+    public function get()
+    {
+        $sql = "SELECT * FROM category order by id DESC";
 
         $result = $this->dbConnection->query($sql);
 

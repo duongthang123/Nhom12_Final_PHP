@@ -68,7 +68,7 @@
 
                     <div class="card">
                         <div class="card-head">
-                            <h2>47,500</h2>
+                            <h2>0</h2>
                             <span class="las la-envelope"></span>
                         </div>
                         <div class="card-progress">

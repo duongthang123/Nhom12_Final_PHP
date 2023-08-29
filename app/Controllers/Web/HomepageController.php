@@ -18,6 +18,7 @@ class HomepageController {
     {
         $target_file = "public/assets/admin/img/";
         $products = $this->product->getNewProduct();
+        $bestSellProducts = $this->product->bestSellProducts();
         $productPk = $this->product->getNewProductByPK();
         
         $categories = $this->category->all();

@@ -41,7 +41,7 @@
                             <h3 class="content__form_titile">Thể loại</h3>
                             <select name="category_id" class="content__form__select">
                                 <?php foreach($categories as $category) {?>
-                                    <option value="<?php echo $category['id'] ?>" selected><?php echo $category['name'] ?></option>
+                                    <option value="<?php echo $category['id'] ?>" <?php echo $product['category_id'] === $category['id'] ? "selected" : "" ?>><?php echo $category['name'] ?></option>
                                 <?php }?>
                             </select>
                             <p id="errors">
@@ -83,7 +83,12 @@
 
                         <div class="content__form_box">
                             <h3 class="content__form_titile">Chọn ảnh</h3>
-                            <input class="content__form_input" placeholder="Nhập số lượng..." type="file" name="img" value="<?php echo isset($product['img']) ? $target_file.$product['img'] : '' ?>">
+                            <input class="content__form_input" type="file" name="img" value="<?php echo $target_file.$product['img'] ?>">
+                            <a style="margin-left: 15px; padding-top: 6px;" href="#">
+                                <img src="<?php echo $target_file.$product['img'] ?>" width="300px" />
+                            </a>
+                            <input type="hidden" name="img" value="<?php echo $product['img'] ?>">
+                            
                             <p id="errors">
                                 <?php echo isset($productErrors['img']['name']) ? $productErrors['img']['name'] : '';?>
                             </p>

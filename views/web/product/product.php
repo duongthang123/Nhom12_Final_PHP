@@ -41,10 +41,18 @@
                                     <input type="hidden" name="product_id" value="<?php echo $product['id'] ?>" class="shop__detail_input">
                                     <span id="quantity_inc" class="inc qtybtn">+</span>
                                 </div>
-                                <button name="btn_addToCart" class="shop__detail_btn btn">Mua Ngay</button>
+                                <?php 
+                                    if($product['quantity'] > 0){?>
+                                    
+                                    <button name="btn_addToCart" class="shop__detail_btn btn">Mua Ngay</button>
+                                    <?php } else{?>
+                                        <p style="font-size: 22px; font-weight: 550 ;color: red;">Hết Hàng</p>
+                                    <?php } ?>
+
+                                    
                             </form>
                             <p class="shop__detail_idproduct" >Mã sản phẩm: <?php echo $product['id'] ?></p>
-                            <p class="shop__detail_statusproduct">Tình trạng: <?php echo isset($product['price']) > 0 ? "Còn hàng" : "Hết hàng" ?></p>
+                            <p class="shop__detail_statusproduct">Tình trạng: <?php echo $product['quantity'] > 0 ? "Còn hàng" : "Hết hàng" ?></p>
                             <p class="shop__detail_cateproduct">Danh mục: <?php echo $product['category_name'] ?></p>
                         </div>
                     </div>

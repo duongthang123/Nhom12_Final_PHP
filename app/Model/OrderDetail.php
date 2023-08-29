@@ -3,6 +3,7 @@
 class OrderDetail extends Model
 {
     protected $table = 'oder_details';
+    protected $table1 = 'product';
 
     public function createOrderDetails($orderId)
     {
@@ -13,8 +14,14 @@ class OrderDetail extends Model
             $product_quantity = $itemCart['quantity'];
             
             $sql = "INSERT INTO oder_details (oder_id, product_id, quantity, total_money) VALUES ($order_id, $product_id, $product_quantity, $product_price*$product_quantity)";
+            
+            $sqlUpdateQuantity = "UPDATE product SET quantity = quantity - $product_quantity WHERE id = $product_id";
+            $sqlUpdateSoldQuantity = "UPDATE product SET soldQuantity = $product_quantity WHERE id = $product_id";
 
             $this->dbConnection->query($sql);
+            
+            $this->dbConnection->query($sqlUpdateQuantity);
+            $this->dbConnection->query($sqlUpdateSoldQuantity);
         }
     }
 
